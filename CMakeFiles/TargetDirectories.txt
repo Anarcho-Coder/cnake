@@ -1,3 +1,0 @@
-/home/volin/Programming/cnake/CMakeFiles/rebuild_cache.dir
-/home/volin/Programming/cnake/CMakeFiles/edit_cache.dir
-/home/volin/Programming/cnake/CMakeFiles/cnake.dir
