@@ -1,13 +1,16 @@
 #! /bin/bash
 
-build() 
+build()
 {
-  echo "Build: Attempting to compile these source files:"
-  echo
-  echo $@
-  echo
+    echo "Build: Attempting to compile these source files:"
 
- gcc -o cnake $@ -lSDL2 
+    for item in $@
+    do
+        echo $item
+    done
+
+
+    gcc -o cnake $@ -lSDL2
 }
 
 
