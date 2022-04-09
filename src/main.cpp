@@ -28,11 +28,7 @@ int main(int argc, char* argv[])
         if (window == NULL) {
             printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
         } else {
-            // Get window surface
-            //            screenSurface = SDL_GetWindowSurface( window );
-
-            // Fill the surface white
-            //            SDL_FillRect( screenSurface, NULL, SDL_MapRGB(
+            //ToDo: https://lazyfoo.net/tutorials/SDL/01_hello_SDL/index2.php
         }
     }
 

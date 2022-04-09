@@ -1,4 +1,4 @@
 *.vim
-/bin/cnake
+/bin/game
 *.swp
 
