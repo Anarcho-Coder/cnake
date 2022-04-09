@@ -26,27 +26,28 @@ error()
 
 addDirectory()
 {
+    dir=$1
+    src=""
 
-    if [ $# -lt 2 ]
+    if [ $# -gt 1 ]
     then
-        error INVALID_DIRECTORY_PARAMETERS_ERROR
-    else
-        src=$1
-        dir=$#
-        
-        for entry in $dir/*
-        do
-            if [[ -f $entry ]]
-            then 
-                src+=" $dir/$entry"
-            elif [[ -d $entry ]]
-            then
-                src+="$(addDirectory $src $entry)"
-            fi
+       src=${$#}
+    fi 
 
-        done      
-    fi
+     for entry in $dir/*
+     do
+         if [[ -f $entry ]]
+         then 
+             src+=" $dir/$entry"
+         elif [[ -d $entry ]]
+         then
+             src+="$(addDirectory $entry $src)"
+         fi
+
+     done      
 }
+
+
 
 # Star Script
 
@@ -66,11 +67,11 @@ else
            sourceFiles="$sourceFiles $file"
        elif [[ -d $file ]]
        then
-           sourceFiles="$(addDirectory $sourceFiles $file)"
+           sourceFiles="$(addDirectory $file $sourceFiles)"
        fi 
    done
 
-   if [ -z $sourceFiles ]
+   if [[ -z $sourceFiles ]]
    then
        echo "Forge: No Source Files Passed"
    else
